@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './Navigation.css';
 
 class Navigation extends Component {
@@ -11,6 +12,14 @@ class Navigation extends Component {
       </ul>
     )
   }
+}
+
+Navigation.PropTypes = {
+  navItems: PropTypes.array.isRequired
+}
+
+Navigation.defaultProps = {
+  navItems: ['Default Prop']
 }
 
 export default Navigation;
