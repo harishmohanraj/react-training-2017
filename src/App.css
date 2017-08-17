@@ -48,6 +48,11 @@
 }
   /* Change the color of links on hover */
 .nav-list li:hover {
+    background-color: #000;
+    color:#ddd;
+}
+
+.nav-list li.selected {
     background-color: #ddd;
     color: black;
 }
