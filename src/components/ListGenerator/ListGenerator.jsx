@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+  Link
+} from 'react-router-dom';
 
 const ListGenerator = ({item, selectedItem, clickHandler}) => {
   return (
@@ -7,7 +10,7 @@ const ListGenerator = ({item, selectedItem, clickHandler}) => {
         className = {item === selectedItem ? 'item selected': 'item'}
         onClick={clickHandler.bind(null, item)}
         >
-          {item}
+          <Link to={`/${item}`}>{item}</Link>
       </li>
   )
 }

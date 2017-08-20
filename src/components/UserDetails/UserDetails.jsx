@@ -1,44 +1,37 @@
-import React from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import TableGenerator from '../TableGenerator/TableGenerator';
+import fetchData from '../../utils/service.js';
 
-function renderHeaders() {
-  return(
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Username</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Company</th>
-      <th>Website</th>
-    </tr>
-  )
-}
+class UserDetails extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+      userData: null
+    }
+  }
 
-function renderBody(data) {
-  return(
-    <tr>
-      <td>{data.id}</td>
-      <td>{data.name}</td>
-      <td>{data.username}</td>
-      <td>{data.phone}</td>
-      <td>{data.email}</td>
-      <td>{data.company.name}</td>
-      <td>{data.website}</td>
-    </tr>
-  )
-}
+  componentDidMount() {
+    const url = 'https://jsonplaceholder.typicode.com/users';
+    fetchData(url)
+      .then((res) => {
+        const userData = res.data;
+        this.setState({
+          loading: false,
+          userData: userData
+        })
+      })
+      .catch(e => console.log(e))
+  }
+  render() {
+    return(
+      <div className="user-details">
+        {this.state.loading ? <p>Loading...</p> : <TableGenerator userData={this.state.userData}/>}
+      </div>
+    )
+  }
 
-const UserDetails = ({userData}) => {
-  return(
-    <div className="user-details">
-      <table>
-        <tbody>
-          {renderHeaders()}
-          {userData.map(data => renderBody(data))}
-        </tbody>
-      </table>
-    </div>
-  )
 }
 
 export default UserDetails;
