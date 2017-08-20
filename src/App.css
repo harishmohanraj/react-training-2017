@@ -41,7 +41,6 @@
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
     cursor: pointer;
@@ -54,6 +53,16 @@
 
 .nav-list li.selected {
     background-color: #ddd;
+    color: black;
+}
+.nav-list li a {
+  padding: 14px 16px;
+  display: inline-block;
+  text-decoration: none;
+  color: #f2f2f2;
+}
+.nav-list li.selected a {
+  background-color: #ddd;
     color: black;
 }
 

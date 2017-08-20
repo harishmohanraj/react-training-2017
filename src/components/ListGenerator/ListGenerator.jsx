@@ -10,7 +10,7 @@ const ListGenerator = ({item, selectedItem, clickHandler}) => {
         className = {item === selectedItem ? 'item selected': 'item'}
         onClick={clickHandler.bind(null, item)}
         >
-          <Link to={`/${item}`}>{item}</Link>
+          <Link to={`/${item.toLowerCase()}`}>{item}</Link>
       </li>
   )
 }
