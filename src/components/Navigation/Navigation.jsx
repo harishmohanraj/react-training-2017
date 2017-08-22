@@ -8,7 +8,7 @@ class Navigation extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: null
+      selectedItem: null
     }
     this.clickHandler = this.clickHandler.bind(this);
   }
