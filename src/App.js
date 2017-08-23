@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
+import Header from './components/Header/Header';
+import TableGenerator from './components/TableGenerator/TableGenerator.jsx';
 import logo from './logo.svg';
+import appData from './app-data/appData.json';
 import './App.css';
 
 class App extends Component {
   render() {
+    const navItems = appData.navItems;
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Header
+          headerLogo = {logo}
+          text="App-logo"
+          navItems = {navItems}
+          />
+        <TableGenerator />
       </div>
     );
   }
